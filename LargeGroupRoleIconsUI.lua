@@ -32,4 +32,5 @@ function LGRI.UI.BuildUI()
     LGRI.UI.MyRaceIcon = MyRaceIcon
     LGRI.UI.MyClassIcon = MyClassIcon
     LGRI.UI.MyRoleIcon = MyRoleIcon
+    LGRI.UI.MyFrag = ZO_SimpleSceneFragment:New(LGRI.UI.MyFrame)
 end

@@ -163,6 +163,19 @@ function LGRI.CreateMy()
 	LGRI.UpdateMyRace(LGRI.my.raceId)
 	LGRI.UpdateMyClass(LGRI.my.classId)
 	LGRI.UpdateMyRole()
+
+end
+
+function LGRI.HudToggle(value)
+	if value == true then
+		HUD_SCENE:AddFragment(LGRI.UI.MyFrag)
+		HUD_UI_SCENE:AddFragment(LGRI.UI.MyFrag)
+		SCENE_MANAGER:GetScene("groupMenuKeyboard"):AddFragment(LGRI.UI.MyFrag)
+	else
+		HUD_SCENE:RemoveFragment(LGRI.UI.MyFrag)
+		HUD_UI_SCENE:RemoveFragment(LGRI.UI.MyFrag)
+		SCENE_MANAGER:GetScene("groupMenuKeyboard"):RemoveFragment(LGRI.UI.MyFrag)
+	end
 end
 
 function LGRI.CreateSettingsWindow()
@@ -185,8 +198,10 @@ function LGRI.CreateSettingsWindow()
 				LGRI.savedVars.visible = value
 				if value == false then
 					LGRI.UI.MyFrame:SetHidden(true)
+					LGRI.HudToggle(false)
 				else
 					LGRI.UI.MyFrame:SetHidden(false)
+					LGRI.HudToggle(true)
 				end
 		    end
 		}
@@ -213,7 +228,7 @@ function LargeGroupRoleIcons.Initialize()
 	LGRI.UI.BuildUI()
     LGRI.CreateSettingsWindow()
 	LGRI.CreateMy()
-
+	LGRI.HudToggle(LGRI.savedVars.visible)
 end
 
 function LGRI.OnAddOnLoaded(event, addonName)
@@ -224,6 +239,8 @@ function LGRI.OnAddOnLoaded(event, addonName)
 
 	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
 	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
+	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_LEFT, LGRI.UpdateMyRole)
+	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_LEFT, --[[????????]], "@SlLva")
 end
 
 SLASH_COMMANDS["/lgri"] = LGRI.HideAndShowIcons
