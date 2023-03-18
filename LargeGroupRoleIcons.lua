@@ -228,7 +228,7 @@ function LGRI.OnAddOnLoaded(event, addonName)
 
     LargeGroupRoleIcons.Initialize()
 
-	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole())
+	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
 	evm:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
 end
 
