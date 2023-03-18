@@ -14,7 +14,7 @@ local defaults = {
 function LGRI.UpdateMyRace(raceId)
 	local my = LGRI.my
 
-	local function ShowTooltip(LGRIRaceIcon)					--  X  Y
+	local function ShowTooltip(LGRIRaceIcon)					-- X  Y
 		InitializeTooltip(InformationTooltip, LGRIRaceIcon, RIGHT, 0, 0, LEFT)
 		SetTooltipText(InformationTooltip, my.race)
 	end
@@ -127,8 +127,9 @@ function LGRI.UpdateMyClass(classId)
 	end
 end
 
-function LGRI.UpdateMyRole(roleId)
+function LGRI.UpdateMyRole(eventId)
 	local my = LGRI.my
+	local roleId = GetGroupMemberSelectedRole("player")
 
 	-- Role
 	if roleId == 1 then
@@ -145,12 +146,6 @@ function LGRI.UpdateMyRole(roleId)
 		my.roleIcon = "esoui/art/armory/builditem_icon.dds"
 		LGRIRoleIcon:SetTexture(my.roleIcon)
 	end
-
-	local myNewRole = GetGroupMemberSelectedRole("player")
-	LGRI.my.roleId = myNewRole;
-
-	--zo_callLater(function() LGRI.callbackForRoleChange(myNewRole) end, 100)
-	evm:UnregisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED)
 end
 
 function LGRI.CreateMy()
@@ -165,11 +160,10 @@ function LGRI.CreateMy()
 	}
 	LGRI.my.raceId = GetUnitRaceId("player")
 	LGRI.my.classId = GetUnitClassId("player")
-	LGRI.my.roleId = GetGroupMemberSelectedRole("player")
 
 	LGRI.UpdateMyRace(LGRI.my.raceId)
 	LGRI.UpdateMyClass(LGRI.my.classId)
-	LGRI.UpdateMyRole(LGRI.my.roleId)
+	LGRI.UpdateMyRole()
 end
 
 function LGRI.CreateSettingsWindow()
@@ -202,7 +196,7 @@ function LGRI.CreateSettingsWindow()
     LAM2:RegisterOptionControls(panelName, optionsData)
 end
 
-function LGRI.HideANDShowIcons()
+function LGRI.HideAndShowIcons()
 	if LGRI.savedVars.visible == true then
 		LGRITLW:SetHidden(true)
 		d("LGRI: Hiding icons.")
@@ -225,18 +219,14 @@ end
 
 function LGRI.OnAddOnLoaded(event, addonName)
     if addonName ~= LGRI.name then return end
+	evm:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
 
     LargeGroupRoleIcons.Initialize()
 
 	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
-	evm:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
-end
-
-SLASH_COMMANDS["/lgri"] = LGRI.HideANDShowIcons
-
-evm:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
-
-function LGRI.callbackForRoleChange(newRole)
-	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole(newRole))
 	evm:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
 end
+
+SLASH_COMMANDS["/lgri"] = LGRI.HideAndShowIcons
+
+evm:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
