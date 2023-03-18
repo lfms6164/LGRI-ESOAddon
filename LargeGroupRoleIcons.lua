@@ -3,8 +3,7 @@ local LGRI = LargeGroupRoleIcons
 LGRI.name = "LargeGroupRoleIcons"
 LGRI.version = "1"
 
-local evm = GetEventManager()
-local wim = GetWindowManager()
+local EM = GetEventManager()
 local LAM2 = LibAddonMenu2
 
 local defaults = {
@@ -219,14 +218,14 @@ end
 
 function LGRI.OnAddOnLoaded(event, addonName)
     if addonName ~= LGRI.name then return end
-	evm:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
+	EM:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
 
     LargeGroupRoleIcons.Initialize()
 
-	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
-	evm:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
+	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
+	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
 end
 
 SLASH_COMMANDS["/lgri"] = LGRI.HideAndShowIcons
 
-evm:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
+EM:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
