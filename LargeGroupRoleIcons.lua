@@ -25,73 +25,73 @@ function LGRI.UpdateMyRace(raceId)
 	-- Race
 	if raceId == 1 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_bretonicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Breton"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 2 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_redguardicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Redguard"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 3 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_orcicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Orc"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 4 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_dunmericon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Dark elf"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 5 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_nordicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Nord"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 6 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_argonianicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Argonian"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 7 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_altmericon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "High elf"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 8 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_bosmericon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Wood elf"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 9 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_khajiiticon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Khajit"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
 	elseif raceId == 10 then
 		my.raceIcon = "esoui/art/charactercreate/charactercreate_imperialicon_down.dds"
-		LGRIRaceIcon:SetTexture(my.raceIcon)
+		LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
 		my.race = "Imperial"
-		LGRIRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
-		LGRIRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
+		LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 	end
 end
 
@@ -102,27 +102,27 @@ function LGRI.UpdateMyClass(classId)
 	-- Class
 	if classId == 1 then
 		my.classIcon = "esoui/art/icons/class/class_dragonknight.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
 	elseif classId == 2 then
 		my.classIcon = "esoui/art/icons/class/class_sorcerer.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
 	elseif classId == 3 then
 		my.classIcon = "esoui/art/icons/class/class_nightblade.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
 	elseif classId == 6 then
 		my.classIcon = "esoui/art/icons/class/class_templar.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
 	elseif classId == 4 then
 		my.classIcon = "esoui/art/icons/class/class_warden.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
 	elseif classId == 5 then
 		my.classIcon = "esoui/art/icons/class/class_necromancer.dds"
-		LGRIClassIcon:SetTexture(my.classIcon)
+		LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 	end
 end
 
@@ -133,17 +133,17 @@ function LGRI.UpdateMyRole(eventId)
 	-- Role
 	if roleId == 1 then
 		my.roleIcon = "esoui/art/lfg/lfg_icon_dps.dds"
-		LGRIRoleIcon:SetTexture(my.roleIcon)
+		LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
 
 	elseif roleId == 2 then
 		my.roleIcon = "esoui/art/lfg/lfg_icon_tank.dds"
-		LGRIRoleIcon:SetTexture(my.roleIcon)
+		LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
 	elseif roleId == 4 then
 		my.roleIcon = "esoui/art/lfg/lfg_icon_healer.dds"
-		LGRIRoleIcon:SetTexture(my.roleIcon)
+		LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
 	else
 		my.roleIcon = "esoui/art/armory/builditem_icon.dds"
-		LGRIRoleIcon:SetTexture(my.roleIcon)
+		LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
 	end
 end
 
@@ -184,9 +184,9 @@ function LGRI.CreateSettingsWindow()
 			setFunc = function (value)
 				LGRI.savedVars.visible = value
 				if value == false then
-					LGRITLW:SetHidden(true)
+					LGRI.UI.MyFrame:SetHidden(true)
 				else
-					LGRITLW:SetHidden(false)
+					LGRI.UI.MyFrame:SetHidden(false)
 				end
 		    end
 		}
@@ -197,11 +197,11 @@ end
 
 function LGRI.HideAndShowIcons()
 	if LGRI.savedVars.visible == true then
-		LGRITLW:SetHidden(true)
+		LGRI.UI.MyFrame:SetHidden(true)
 		d("LGRI: Hiding icons.")
 		LGRI.savedVars.visible = false
 	else
-		LGRITLW:SetHidden(false)
+		LGRI.UI.MyFrame:SetHidden(false)
 		d("LGRI: Showing icons.")
 		LGRI.savedVars.visible = true
 	end

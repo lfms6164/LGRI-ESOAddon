@@ -6,30 +6,30 @@ LGRI.UI = {}
 local WM = GetWindowManager()
 
 function LGRI.UI.BuildUI()
-    local LGRIFrame = WM:CreateTopLevelWindow("LGRITLW")
-    LGRIFrame:SetDimensions(75, 30)
-    LGRIFrame:SetAnchor(CENTER, GuiRoot, TOP, 0, 100)
-    LGRIFrame:SetMovable(false)
-    LGRIFrame:SetHidden(not LGRI.savedVars.visible)
+    local MyFrame = WM:CreateTopLevelWindow("MyFrame")
+    MyFrame:SetDimensions(75, 30)
+    MyFrame:SetAnchor(CENTER, GuiRoot, TOP, 0, 100)
+    MyFrame:SetMovable(false)
+    MyFrame:SetHidden(not LGRI.savedVars.visible)
 
-    local LGRIRaceIcon = WM:CreateControl("LGRIRaceIcon", LGRIFrame, CT_TEXTURE)
-    LGRIRaceIcon:SetDimensions(30, 30)
-    LGRIRaceIcon:SetAnchor(CENTER, LGRIframe, LEFT, 0, 0)
-    LGRIRaceIcon:SetTexture("")
-    LGRIRaceIcon:SetMouseEnabled(true)
+    local MyRaceIcon = WM:CreateControl("MyRaceIcon", MyFrame, CT_TEXTURE)
+    MyRaceIcon:SetDimensions(30, 30)
+    MyRaceIcon:SetAnchor(CENTER, MyFrame, LEFT, 0, 0)
+    MyRaceIcon:SetTexture("")
+    MyRaceIcon:SetMouseEnabled(true)
 
-    local LGRIClassIcon = WM:CreateControl("LGRIClassIcon", LGRIFrame, CT_TEXTURE)
-    LGRIClassIcon:SetDimensions(30, 30)
-    LGRIClassIcon:SetAnchor(CENTER, LGRIframe, CENTER, 0, 0)
-    LGRIClassIcon:SetTexture("")
+    local MyClassIcon = WM:CreateControl("MyClassIcon", MyFrame, CT_TEXTURE)
+    MyClassIcon:SetDimensions(30, 30)
+    MyClassIcon:SetAnchor(CENTER, MyFrame, CENTER, 0, 0)
+    MyClassIcon:SetTexture("")
 
-    local LGRIRoleIcon = WM:CreateControl("LGRIRoleIcon", LGRIFrame, CT_TEXTURE)
-    LGRIRoleIcon:SetDimensions(30, 30)
-    LGRIRoleIcon:SetAnchor(CENTER, LGRIframe, RIGHT, 0, 0)
-    LGRIRoleIcon:SetTexture("")
+    local MyRoleIcon = WM:CreateControl("MyRoleIcon", MyFrame, CT_TEXTURE)
+    MyRoleIcon:SetDimensions(30, 30)
+    MyRoleIcon:SetAnchor(CENTER, MyFrame, RIGHT, 0, 0)
+    MyRoleIcon:SetTexture("")
 
-    LGRI.UI.LGRIFrame = LGRIFrame
-    LGRI.UI.LGRIRaceIcon = LGRIRaceIcon
-    LGRI.UI.LGRIClassIcon = LGRIClassIcon
-    LGRI.UI.LGRIRoleIcon = LGRIRoleIcon
+    LGRI.UI.MyFrame = MyFrame
+    LGRI.UI.MyRaceIcon = MyRaceIcon
+    LGRI.UI.MyClassIcon = MyClassIcon
+    LGRI.UI.MyRoleIcon = MyRoleIcon
 end
