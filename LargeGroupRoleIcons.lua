@@ -150,7 +150,7 @@ function LGRI.UpdateMyRole(roleId)
 	LGRI.my.roleId = myNewRole;
 
 	--zo_callLater(function() LGRI.callbackForRoleChange(myNewRole) end, 100)
-	evm:UnregisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLES_CHANGED)
+	evm:UnregisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED)
 end
 
 function LGRI.CreateMy()
@@ -228,7 +228,7 @@ function LGRI.OnAddOnLoaded(event, addonName)
 
     LargeGroupRoleIcons.Initialize()
 
-	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLES_CHANGED, LGRI.UpdateMyRole(newRole))
+	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole())
 	evm:UnregisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED)
 end
 
@@ -237,6 +237,6 @@ SLASH_COMMANDS["/lgri"] = LGRI.HideANDShowIcons
 evm:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
 
 function LGRI.callbackForRoleChange(newRole)
-	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLES_CHANGED, LGRI.UpdateMyRole(newRole))
-	evm:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLES_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
+	evm:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole(newRole))
+	evm:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
 end
