@@ -1,0 +1,10 @@
+## Title: LargeGroupRoleIcons
+## Author: @SlLva
+## Version: 1.1
+## APIVersion: 101036
+
+## DependsOn: LibAddonMenu-2.0
+## SavedVariables: LargeGroupRoleIconsVars
+
+LargeGroupRoleIconsUI.lua
+LargeGroupRoleIcons.lua
