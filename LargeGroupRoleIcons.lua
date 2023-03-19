@@ -238,9 +238,9 @@ function LGRI.OnAddOnLoaded(event, addonName)
     LargeGroupRoleIcons.Initialize()
 
 	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
-	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG_PREFIX, "player")
-	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_LEFT, LGRI.UpdateMyRole)
-	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_LEFT, --[[????????]], "@SlLva")
+	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG, "player")
+	--EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_LEFT, LGRI.UpdateMyRole)
+	--EM:AddFilterForEvent(EVENT_GROUP_MEMBER_LEFT, --[[????????]], "@SlLva")
 end
 
 SLASH_COMMANDS["/lgri"] = LGRI.HideAndShowIcons
