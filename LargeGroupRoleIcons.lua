@@ -126,7 +126,13 @@ function LGRI.UpdateMyClass(classId)
 	end
 end
 
-function LGRI.UpdateMyRole(eventId)
+function LGRI.UpdateMyRole(eventId, unitTag)
+	if unitTag ~= nil then
+		local index = GetGroupIndexByUnitTag("player")
+		local myUnitTag = GetGroupUnitTagByIndex(index)
+		if unitTag ~= myUnitTag then return end
+	end
+
 	local my = LGRI.my
 	local roleId = GetGroupMemberSelectedRole("player")
 
@@ -237,10 +243,19 @@ function LGRI.OnAddOnLoaded(event, addonName)
 
     LargeGroupRoleIcons.Initialize()
 
-	EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
-	EM:AddFilterForEvent(EVENT_GROUP_MEMBER_ROLE_CHANGED, REGISTER_FILTER_UNIT_TAG, "player")
-	--EM:RegisterForEvent(LGRI.name, EVENT_GROUP_MEMBER_LEFT, LGRI.UpdateMyRole)
-	--EM:AddFilterForEvent(EVENT_GROUP_MEMBER_LEFT, --[[????????]], "@SlLva")
+	--[[
+	EM:RegisterForEvent(LGRI.name .. "IJoinedGroup", EVENT_GROUP_MEMBER_JOINED,
+	function(eventId, memberCharacterName, isLocalPlayer, memberDisplayName)
+   		if not isLocalPlayer then return end
+   		LGRI.UpdateMyRole()
+	end)]]
+	EM:RegisterForEvent(LGRI.name .. "MyRoleChanged", EVENT_GROUP_MEMBER_ROLE_CHANGED, LGRI.UpdateMyRole)
+    EM:RegisterForEvent(LGRI.name .. "ILeftGroup", EVENT_GROUP_MEMBER_LEFT,
+	function(eventId, memberCharacterName, groupLeaveReason , isLocalPlayer, isLeader, memberDisplayName, actionRequiredVote)
+   		if not isLocalPlayer then return end
+   		LGRI.UpdateMyRole()
+	end)
+
 end
 
 SLASH_COMMANDS["/lgri"] = LGRI.HideAndShowIcons
