@@ -169,7 +169,6 @@ function LGRI.CreateMy()
 	LGRI.UpdateMyRace(LGRI.my.raceId)
 	LGRI.UpdateMyClass(LGRI.my.classId)
 	LGRI.UpdateMyRole()
-
 end
 
 function LGRI.HudToggle(value)
