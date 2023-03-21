@@ -23,17 +23,17 @@ function LGRI.CreateSettingsWindow()
 	local optionsData = {
 		[1] = {
 			type = "checkbox",
-			name = "Show",
+			name = "My Icons",
 			tooltip = "Show or Hide my icons.",
 			getFunc = function () return LGRI.savedVars.visible end,
 			setFunc = function (value)
 				LGRI.savedVars.visible = value
 				if value == false then
 					LGRI.UI.MyFrame:SetHidden(true)
-					LGRI.HudToggle(false)
+					LGRI.MY.HudToggle(false)
 				else
 					LGRI.UI.MyFrame:SetHidden(false)
-					LGRI.HudToggle(true)
+					LGRI.MY.HudToggle(true)
 				end
 		    end
 		}
