@@ -164,18 +164,6 @@ function LGRI.MY.CreateMy()
     LGRI.MY.UpdateMyRole()
 end
 
-function LGRI.MY.HudToggle(value)
-    if value == true then
-        HUD_SCENE:AddFragment(LGRI.UI.MyFrag)
-        HUD_UI_SCENE:AddFragment(LGRI.UI.MyFrag)
-        SCENE_MANAGER:GetScene("groupMenuKeyboard"):AddFragment(LGRI.UI.MyFrag)
-    else
-        HUD_SCENE:RemoveFragment(LGRI.UI.MyFrag)
-        HUD_UI_SCENE:RemoveFragment(LGRI.UI.MyFrag)
-        SCENE_MANAGER:GetScene("groupMenuKeyboard"):RemoveFragment(LGRI.UI.MyFrag)
-    end
-end
-
 function LGRI.MY.HideAndShowIcons()
     if LGRI.savedVars.visible == true then
         LGRI.UI.MyFrame:SetHidden(true)

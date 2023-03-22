@@ -8,6 +8,10 @@ local LAM2 = LibAddonMenu2
 
 local defaults = {
     visible = true,
+	lockUI = true,
+	defaultPos = true,
+	MyFrameX = 0,
+	MyFrameY = 100,
 }
 
 function LGRI.CreateSettingsWindow()
@@ -21,7 +25,17 @@ function LGRI.CreateSettingsWindow()
     }
 
 	local optionsData = {
-		[1] = {
+		{
+			type = "button",
+			name = "Default location",
+			tooltip = "Set my icons to default position.",
+			func = function ()
+				LGRI.UI.MyFrame:ClearAnchors()
+				LGRI.UI.MyFrame:SetAnchor(CENTER, GuiRoot, TOP, 0, 100)
+				LGRI.savedVars.defaultPos = true
+			end
+		},
+		{
 			type = "checkbox",
 			name = "My Icons",
 			tooltip = "Show or Hide my icons.",
@@ -30,10 +44,26 @@ function LGRI.CreateSettingsWindow()
 				LGRI.savedVars.visible = value
 				if value == false then
 					LGRI.UI.MyFrame:SetHidden(true)
-					LGRI.MY.HudToggle(false)
+					LGRI.UI.HudToggle(false)
 				else
 					LGRI.UI.MyFrame:SetHidden(false)
-					LGRI.MY.HudToggle(true)
+					LGRI.UI.HudToggle(true)
+				end
+		    end
+		},
+		{
+			type = "checkbox",
+			name = "Lock UI",
+			tooltip = "Enables repositioning of my icons.",
+			getFunc = function () return LGRI.savedVars.lockUI end,
+			setFunc = function (value)
+				LGRI.savedVars.lockUI = value
+				if value == true then
+					LGRI.UI.MyFrame:SetMouseEnabled(false)
+					LGRI.UI.MyFrame:SetMovable(false)
+				else
+					LGRI.UI.MyFrame:SetMouseEnabled(true)
+					LGRI.UI.MyFrame:SetMovable(true)
 				end
 		    end
 		}
@@ -48,7 +78,6 @@ function LargeGroupRoleIcons.Initialize()
 	LGRI.CreateSettingsWindow()
 	LGRI.UI.BuildUI()
 	LGRI.MY.CreateMy()
-	LGRI.MY.HudToggle(LGRI.savedVars.visible)
 end
 
 function LGRI.OnAddOnLoaded(event, addonName)
@@ -68,7 +97,6 @@ function LGRI.OnAddOnLoaded(event, addonName)
    		if not isLocalPlayer then return end
    		LGRI.MY.UpdateMyRole()
 	end)
-
 end
 
 EM:RegisterForEvent(LGRI.name, EVENT_ADD_ON_LOADED, LGRI.OnAddOnLoaded)
