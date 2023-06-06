@@ -40,7 +40,7 @@ function LGRI.MY.UpdateMyRace(raceId)
     elseif raceId == 4 then
         my.raceIcon = "esoui/art/charactercreate/charactercreate_dunmericon_down.dds"
         LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
-        my.race = "Dark elf"
+        my.race = "Dark Elf"
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
@@ -61,14 +61,14 @@ function LGRI.MY.UpdateMyRace(raceId)
     elseif raceId == 7 then
         my.raceIcon = "esoui/art/charactercreate/charactercreate_altmericon_down.dds"
         LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
-        my.race = "High elf"
+        my.race = "High Elf"
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
     elseif raceId == 8 then
         my.raceIcon = "esoui/art/charactercreate/charactercreate_bosmericon_down.dds"
         LGRI.UI.MyRaceIcon:SetTexture(my.raceIcon)
-        my.race = "Wood elf"
+        my.race = "Wood Elf"
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseEnter", function (LGRIRaceIcon) ShowTooltip(LGRIRaceIcon) end)
         LGRI.UI.MyRaceIcon:SetHandler("OnMouseExit", function (LGRIRaceIcon) HideTooltip(LGRIRaceIcon) end)
 
@@ -105,16 +105,20 @@ function LGRI.MY.UpdateMyClass(classId)
         my.classIcon = "esoui/art/icons/class/class_nightblade.dds"
         LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
-    elseif classId == 6 then
-        my.classIcon = "esoui/art/icons/class/class_templar.dds"
-        LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
-
     elseif classId == 4 then
         my.classIcon = "esoui/art/icons/class/class_warden.dds"
         LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
 
     elseif classId == 5 then
         my.classIcon = "esoui/art/icons/class/class_necromancer.dds"
+        LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
+
+    elseif classId == 6 then
+        my.classIcon = "esoui/art/icons/class/class_templar.dds"
+        LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
+        
+    elseif classId == 7 then
+        my.classIcon = "esoui/art/icons/class/class_arcanist.dds"
         LGRI.UI.MyClassIcon:SetTexture(my.classIcon)
     end
 end
@@ -133,14 +137,17 @@ function LGRI.MY.UpdateMyRole(eventId, unitTag)
     if roleId == 1 then
         my.roleIcon = "esoui/art/lfg/lfg_icon_dps.dds"
         LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
-
+        LGRI.UI.MyRoleIcon:SetHidden(false)
     elseif roleId == 2 then
         my.roleIcon = "esoui/art/lfg/lfg_icon_tank.dds"
         LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
+        LGRI.UI.MyRoleIcon:SetHidden(false)
     elseif roleId == 4 then
         my.roleIcon = "esoui/art/lfg/lfg_icon_healer.dds"
         LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
+        LGRI.UI.MyRoleIcon:SetHidden(false)
     else
+        LGRI.UI.MyRoleIcon:SetHidden(true)
         my.roleIcon = "esoui/art/armory/builditem_icon.dds"
         LGRI.UI.MyRoleIcon:SetTexture(my.roleIcon)
     end

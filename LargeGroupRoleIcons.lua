@@ -33,7 +33,8 @@ function LGRI.CreateSettingsWindow()
 				LGRI.UI.MyFrame:ClearAnchors()
 				LGRI.UI.MyFrame:SetAnchor(CENTER, GuiRoot, TOP, 0, 100)
 				LGRI.savedVars.defaultPos = true
-			end
+			end,
+			isDangerous = true
 		},
 		{
 			type = "checkbox",
