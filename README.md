@@ -1,2 +1,2 @@
 # LGRI-ESOAddon
-It's an addon created and developed by me for The Elder Scrolls Online
+LargeGroupRoleIcons is an Elder Scrolls Online addon that displays on screen information about the user's character and provides a settings menu with some custumization options.
